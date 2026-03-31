@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Label?>
+<AnchorPane prefHeight="764.0" prefWidth="1192.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SupplierController">
+    <children>
+        <Label layoutX="451.0" layoutY="232.0" prefHeight="99.0" prefWidth="248.0" text="Supplier">
+            <font>
+                <Font size="53.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

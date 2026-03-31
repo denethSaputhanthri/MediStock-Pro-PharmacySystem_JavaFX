@@ -1,225 +1,148 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="782.0" prefWidth="1522.0" style="-fx-background-color: #f5f6fa;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardFormController">
-    <children>
 
-        <!-- Main Content Area -->
-        <HBox layoutX="16.0" layoutY="14.0" prefHeight="726.0" prefWidth="1490.0" spacing="20.0">
-            <children>
-                <!-- Left Sidebar with Navigation -->
-                <VBox prefWidth="200.0" spacing="15.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
-                    <children>
-                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="General" />
-
-                        <JFXButton alignment="CENTER" onAction="#btnCustomerOnAction" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #3a5f71; -fx-background-radius: 10; -fx-font-size: 16px;" text="Customer" textFill="#f4f4f4" />
-
-                        <JFXButton alignment="CENTER" onAction="#btnItemsOnAction" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #3a5f71; -fx-background-radius: 10; -fx-font-size: 16px;" text="Items" textFill="#f4f4f4" />
-
-                        <JFXButton alignment="CENTER" onAction="#btnOrderOnAction" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #3a5f71; -fx-background-radius: 10; -fx-font-size: 16px;" text="Order" textFill="#f4f4f4" />
-
-                        <JFXButton alignment="CENTER" onAction="#btnOrderDetailsOnAction" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #3a5f71; -fx-background-radius: 10; -fx-font-size: 16px;" text="Order Details" textFill="#f4f4f4" />
-
-                        <Label style="-fx-font-size: 16px; -fx-text-fill: #7f8c8d;" text="Settings" />
-                        <Label style="-fx-font-size: 16px; -fx-text-fill: #7f8c8d;" text="Help" />
-                        <Label style="-fx-font-size: 16px; -fx-text-fill: #e74c3c;" text="Logout" />
-
-                        <!-- Team Section -->
-                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-margin-top: 20;" text="Team" />
-                        <HBox spacing="10.0">
-                            <children>
-                                <Label style="-fx-background-color: #3498db; -fx-background-radius: 20; -fx-padding: 8 12; -fx-text-fill: white;" text="S" />
-                                <Label style="-fx-background-color: #e74c3c; -fx-background-radius: 20; -fx-padding: 8 12; -fx-text-fill: white;" text="M" />
-                                <Label style="-fx-background-color: #2ecc71; -fx-background-radius: 20; -fx-padding: 8 12; -fx-text-fill: white;" text="T" />
-                                <Label style="-fx-background-color: #f39c12; -fx-background-radius: 20; -fx-padding: 8 12; -fx-text-fill: white;" text="W" />
-                                <Label style="-fx-background-color: #9b59b6; -fx-background-radius: 20; -fx-padding: 8 12; -fx-text-fill: white;" text="T" />
-                                <Label style="-fx-background-color: #1abc9c; -fx-background-radius: 20; -fx-padding: 8 12; -fx-text-fill: white;" text="F" />
-                                <Label style="-fx-background-color: #e67e22; -fx-background-radius: 20; -fx-padding: 8 12; -fx-text-fill: white;" text="S" />
-                            </children>
+<AnchorPane prefHeight="764.0" prefWidth="1192.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardController">
+   <children>
+      <VBox layoutX="1.0" layoutY="2.0" prefHeight="742.0" prefWidth="811.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+         <children>
+            <HBox prefHeight="50.0" spacing="10.0">
+               <children>
+                  <VBox prefHeight="108.0" prefWidth="198.0" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+                     <children>
+                        <Label style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;" text="Total Projects" />
+                        <Label style="-fx-font-size: 28px; -fx-font-weight: bold;" text="24" />
+                        <Label style="-fx-font-size: 12px; -fx-text-fill: #2ecc71;" text="Increased from last month" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="108.0" prefWidth="198.0" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+                     <children>
+                        <Label style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;" text="Ended Projects" />
+                        <Label style="-fx-font-size: 28px; -fx-font-weight: bold;" text="10" />
+                        <Label style="-fx-font-size: 12px; -fx-text-fill: #2ecc71;" text="Increased from last month" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="108.0" prefWidth="198.0" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+                     <children>
+                        <Label style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;" text="Running Projects" />
+                        <Label style="-fx-font-size: 28px; -fx-font-weight: bold;" text="12" />
+                        <Label style="-fx-font-size: 12px; -fx-text-fill: #2ecc71;" text="Increased from last month" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="108.0" prefWidth="204.0" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+                     <children>
+                        <Label style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;" text="Pending Project" />
+                        <Label style="-fx-font-size: 28px; -fx-font-weight: bold;" text="2" />
+                        <Label style="-fx-font-size: 12px; -fx-text-fill: #f39c12;" text="On Discuss" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="50.0" spacing="10.0" />
+            <HBox spacing="20.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);" />
+            <HBox prefHeight="50.0" spacing="10.0" />
+            <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-padding: 0 0 10 0;" text="Team Collaboration" />
+            <HBox prefHeight="50.0" spacing="10.0">
+               <children>
+                  <Label style="-fx-font-weight: bold;" text="Alexandria Deff" />
+                  <Label style="-fx-text-fill: #7f8c8d;" text="Working on Github Project Repository" />
+                  <Label style="-fx-background-color: #2ecc71; -fx-background-radius: 5; -fx-padding: 2 8; -fx-text-fill: white;" text="Completed" />
+               </children>
+            </HBox>
+            <HBox prefHeight="50.0" spacing="10.0">
+               <children>
+                  <Label style="-fx-font-weight: bold;" text="Edwin Adenike" />
+                  <Label style="-fx-text-fill: #7f8c8d;" text="Working on Integrate User Authentication System" />
+                  <Label style="-fx-background-color: #f39c12; -fx-background-radius: 5; -fx-padding: 2 8; -fx-text-fill: white;" text="In Progress" />
+               </children>
+            </HBox>
+            <HBox prefHeight="50.0" spacing="10.0">
+               <children>
+                  <Label style="-fx-font-weight: bold;" text="Isaac Oluwatemilori" />
+                  <Label style="-fx-text-fill: #7f8c8d;" text="Working on Develop Search and Filter Functionality" />
+                  <Label style="-fx-background-color: #e74c3c; -fx-background-radius: 5; -fx-padding: 2 8; -fx-text-fill: white;" text="Pending" />
+               </children>
+            </HBox>
+            <HBox prefHeight="50.0" spacing="10.0">
+               <children>
+                  <Label style="-fx-font-weight: bold;" text="David Oshodi" />
+                  <Label style="-fx-text-fill: #7f8c8d;" text="Working on Responsive Layout for Homepage" />
+                  <Label style="-fx-background-color: #f39c12; -fx-background-radius: 5; -fx-padding: 2 8; -fx-text-fill: white;" text="In Progress" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox layoutX="833.0" layoutY="3.0" prefHeight="726.0" prefWidth="325.0" spacing="20.0">
+         <children>
+            <VBox prefHeight="410.0" prefWidth="350.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+               <children>
+                  <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Time Tracker" />
+                  <Label style="-fx-font-size: 36px; -fx-font-weight: bold;" text="419h" />
+                  <Label style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;" text="Project Ended" />
+                  <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+                     <children>
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-padding: 0 0 10 0;" text="Project" />
+                        <HBox prefHeight="40.0" spacing="10.0">
+                           <children>
+                              <Label style="-fx-font-weight: bold;" text="Develop API Endpoints" />
+                              <Label style="-fx-text-fill: #e74c3c;" text="Due date: Nov 26, 2024" />
+                           </children>
                         </HBox>
-
-                        <!-- Download Mobile App -->
-                        <VBox style="-fx-background-color: #3a5f71; -fx-background-radius: 15; -fx-padding: 15; -fx-margin-top: 30;">
-                            <children>
-                                <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: white;" text="Download our Mobile App" />
-                                <Label style="-fx-font-size: 12px; -fx-text-fill: #ecf0f1;" text="Get easy in another way" />
-                            </children>
-                        </VBox>
-                    </children>
-                </VBox>
-
-                <!-- Main Middle Content -->
-                <VBox prefHeight="726.0" prefWidth="791.0" spacing="20.0">
-                    <children>
-                        <!-- Stats Cards -->
-                        <HBox spacing="15.0">
-                            <children>
-                                <VBox prefHeight="108.0" prefWidth="186.0" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
-                                    <children>
-                                        <Label style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;" text="Total Projects" />
-                                        <Label style="-fx-font-size: 28px; -fx-font-weight: bold;" text="24" />
-                                        <Label style="-fx-font-size: 12px; -fx-text-fill: #2ecc71;" text="Increased from last month" />
-                                    </children>
-                                </VBox>
-                                <VBox prefHeight="108.0" prefWidth="186.0" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
-                                    <children>
-                                        <Label style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;" text="Ended Projects" />
-                                        <Label style="-fx-font-size: 28px; -fx-font-weight: bold;" text="10" />
-                                        <Label style="-fx-font-size: 12px; -fx-text-fill: #2ecc71;" text="Increased from last month" />
-                                    </children>
-                                </VBox>
-                                <VBox prefHeight="108.0" prefWidth="186.0" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
-                                    <children>
-                                        <Label style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;" text="Running Projects" />
-                                        <Label style="-fx-font-size: 28px; -fx-font-weight: bold;" text="12" />
-                                        <Label style="-fx-font-size: 12px; -fx-text-fill: #2ecc71;" text="Increased from last month" />
-                                    </children>
-                                </VBox>
-                                <VBox prefHeight="108.0" prefWidth="182.0" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
-                                    <children>
-                                        <Label style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;" text="Pending Project" />
-                                        <Label style="-fx-font-size: 28px; -fx-font-weight: bold;" text="2" />
-                                        <Label style="-fx-font-size: 12px; -fx-text-fill: #f39c12;" text="On Discuss" />
-                                    </children>
-                                </VBox>
-                            </children>
+                        <HBox prefHeight="40.0" spacing="10.0">
+                           <children>
+                              <Label style="-fx-font-weight: bold;" text="Onboarding Flow" />
+                              <Label style="-fx-text-fill: #e74c3c;" text="Due date: Nov 28, 2024" />
+                           </children>
                         </HBox>
-
-                        <!-- Meeting Card -->
-                        <HBox spacing="20.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
-                            <children>
-                                <VBox>
-                                    <children>
-                                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Meeting with Arc Company" />
-                                        <Label style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;" text="Time: 02.00 pm - 04.00 pm" />
-                                    </children>
-                                </VBox>
-                                <JFXButton style="-fx-background-color: #3a5f71; -fx-background-radius: 10; -fx-padding: 10 20;" text="Start Meeting" textFill="WHITE" />
-                            </children>
+                        <HBox prefHeight="40.0" spacing="10.0">
+                           <children>
+                              <Label style="-fx-font-weight: bold;" text="Build Dashboard" />
+                              <Label style="-fx-text-fill: #e74c3c;" text="Due date: Nov 30, 2024" />
+                           </children>
                         </HBox>
-
-                        <!-- Team Collaboration -->
-                        <VBox prefHeight="279.0" prefWidth="712.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
-                            <children>
-                                <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-padding: 0 0 10 0;" text="Team Collaboration" />
-
-                                <HBox prefHeight="50.0" spacing="10.0">
-                                    <children>
-                                        <Label style="-fx-font-weight: bold;" text="Alexandria Deff" />
-                                        <Label style="-fx-text-fill: #7f8c8d;" text="Working on Github Project Repository" />
-                                        <Label style="-fx-background-color: #2ecc71; -fx-background-radius: 5; -fx-padding: 2 8; -fx-text-fill: white;" text="Completed" />
-                                    </children>
-                                </HBox>
-
-                                <HBox prefHeight="50.0" spacing="10.0">
-                                    <children>
-                                        <Label style="-fx-font-weight: bold;" text="Edwin Adenike" />
-                                        <Label style="-fx-text-fill: #7f8c8d;" text="Working on Integrate User Authentication System" />
-                                        <Label style="-fx-background-color: #f39c12; -fx-background-radius: 5; -fx-padding: 2 8; -fx-text-fill: white;" text="In Progress" />
-                                    </children>
-                                </HBox>
-
-                                <HBox prefHeight="50.0" spacing="10.0">
-                                    <children>
-                                        <Label style="-fx-font-weight: bold;" text="Isaac Oluwatemilori" />
-                                        <Label style="-fx-text-fill: #7f8c8d;" text="Working on Develop Search and Filter Functionality" />
-                                        <Label style="-fx-background-color: #e74c3c; -fx-background-radius: 5; -fx-padding: 2 8; -fx-text-fill: white;" text="Pending" />
-                                    </children>
-                                </HBox>
-
-                                <HBox prefHeight="50.0" spacing="10.0">
-                                    <children>
-                                        <Label style="-fx-font-weight: bold;" text="David Oshodi" />
-                                        <Label style="-fx-text-fill: #7f8c8d;" text="Working on Responsive Layout for Homepage" />
-                                        <Label style="-fx-background-color: #f39c12; -fx-background-radius: 5; -fx-padding: 2 8; -fx-text-fill: white;" text="In Progress" />
-                                    </children>
-                                </HBox>
-                            </children>
-                        </VBox>
-                    </children>
-                </VBox>
-
-                <!-- Right Sidebar -->
-                <VBox prefHeight="726.0" prefWidth="334.0" spacing="20.0">
-                    <children>
-                        <!-- Reminders -->
-                        <VBox prefHeight="121.0" prefWidth="369.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
-                            <children>
-                                <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-padding: 0 0 10 0;" text="Reminders" />
-                                <HBox spacing="10.0">
-                                    <children>
-                                        <Label style="-fx-font-weight: bold;" text="Meeting with Arc Company" />
-                                        <Label style="-fx-background-color: #2ecc71; -fx-background-radius: 5; -fx-padding: 2 8; -fx-text-fill: white;" text="Completed" />
-                                    </children>
-                                </HBox>
-                            </children>
-                        </VBox>
-
-                        <!-- Projects -->
-                        <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
-                            <children>
-                                <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-padding: 0 0 10 0;" text="Project" />
-
-                                <HBox prefHeight="40.0" spacing="10.0">
-                                    <children>
-                                        <Label style="-fx-font-weight: bold;" text="Develop API Endpoints" />
-                                        <Label style="-fx-text-fill: #e74c3c;" text="Due date: Nov 26, 2024" />
-                                    </children>
-                                </HBox>
-
-                                <HBox prefHeight="40.0" spacing="10.0">
-                                    <children>
-                                        <Label style="-fx-font-weight: bold;" text="Onboarding Flow" />
-                                        <Label style="-fx-text-fill: #e74c3c;" text="Due date: Nov 28, 2024" />
-                                    </children>
-                                </HBox>
-
-                                <HBox prefHeight="40.0" spacing="10.0">
-                                    <children>
-                                        <Label style="-fx-font-weight: bold;" text="Build Dashboard" />
-                                        <Label style="-fx-text-fill: #e74c3c;" text="Due date: Nov 30, 2024" />
-                                    </children>
-                                </HBox>
-
-                                <HBox prefHeight="40.0" spacing="10.0">
-                                    <children>
-                                        <Label style="-fx-font-weight: bold;" text="Optimize Page Load" />
-                                        <Label style="-fx-text-fill: #e74c3c;" text="Due date: Dec 5, 2024" />
-                                    </children>
-                                </HBox>
-
-                                <HBox prefHeight="40.0" spacing="10.0">
-                                    <children>
-                                        <Label style="-fx-font-weight: bold;" text="Cross-Browser Testing" />
-                                        <Label style="-fx-text-fill: #e74c3c;" text="Due date: Dec 6, 2024" />
-                                    </children>
-                                </HBox>
-                            </children>
-                        </VBox>
-
-                        <!-- Time Tracker -->
-                        <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
-                            <children>
-                                <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Time Tracker" />
-                                <Label style="-fx-font-size: 36px; -fx-font-weight: bold;" text="419h" />
-                                <Label style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;" text="Project Ended" />
-                            </children>
-                        </VBox>
-
-                        <!-- Pendings -->
-                        <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
-                            <children>
-                                <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Pendings" />
-                            </children>
-                        </VBox>
-                    </children>
-                </VBox>
-            </children>
-        </HBox>
-    </children>
+                        <HBox prefHeight="40.0" spacing="10.0">
+                           <children>
+                              <Label style="-fx-font-weight: bold;" text="Optimize Page Load" />
+                              <Label style="-fx-text-fill: #e74c3c;" text="Due date: Dec 5, 2024" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" spacing="10.0">
+                           <children>
+                              <Label style="-fx-font-weight: bold;" text="Cross-Browser Testing" />
+                              <Label style="-fx-text-fill: #e74c3c;" text="Due date: Dec 6, 2024" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="142.0" prefWidth="326.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+               <children>
+                  <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-padding: 0 0 10 0;" text="Reminders" />
+                  <HBox spacing="10.0">
+                     <children>
+                        <Label style="-fx-font-weight: bold;" text="Meeting with Arc Company" />
+                        <Label style="-fx-background-color: #2ecc71; -fx-background-radius: 5; -fx-padding: 2 8; -fx-text-fill: white;" text="Completed" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="162.0" prefWidth="329.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+               <children>
+                  <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Pendings" />
+                  <VBox>
+                     <children>
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Meeting with Arc Company" />
+                        <Label style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;" text="Time: 02.00 pm - 04.00 pm" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>
