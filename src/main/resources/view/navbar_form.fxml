@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="782.0" prefWidth="1522.0" style="-fx-background-color: #f5f6fa;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NavbarController">
+    <children>
+
+        <!-- Main Content Area -->
+        <HBox layoutX="8.0" layoutY="14.0" prefHeight="762.0" prefWidth="1498.0" spacing="20.0">
+            <children>
+                <!-- Left Sidebar with Navigation -->
+                <VBox prefWidth="200.0" spacing="15.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+                    <children>
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="General" />
+
+                        <JFXButton alignment="CENTER" onAction="#btnDashboardOnAction" prefHeight="40.0" prefWidth="234.0" style="-fx-background-color: #3a5f71; -fx-background-radius: 10; -fx-font-size: 16px;" text="Dashboard" textFill="#f4f4f4" />
+                  <JFXButton alignment="CENTER" layoutX="30.0" layoutY="72.0" onAction="#btnMedicineOnAction" prefHeight="40.0" prefWidth="234.0" style="-fx-background-color: #3a5f71; -fx-background-radius: 10; -fx-font-size: 16px;" text="Medicine" textFill="#f4f4f4" />
+
+                        <JFXButton alignment="CENTER" onAction="#btnSupplierOnAction" prefHeight="40.0" prefWidth="234.0" style="-fx-background-color: #3a5f71; -fx-background-radius: 10; -fx-font-size: 16px;" text="Supplier" textFill="#f4f4f4" />
+
+                        <JFXButton alignment="CENTER" onAction="#btnSalesBOnAction" prefHeight="40.0" prefWidth="234.0" style="-fx-background-color: #3a5f71; -fx-background-radius: 10; -fx-font-size: 16px;" text="Sales / Billing" textFill="#f4f4f4" />
+                  <JFXButton alignment="CENTER" layoutX="30.0" layoutY="183.0" onAction="#btnOrderOnAction" prefHeight="40.0" prefWidth="234.0" style="-fx-background-color: #3a5f71; -fx-background-radius: 10; -fx-font-size: 16px;" text="Order Details" textFill="#f4f4f4" />
+
+                        <JFXButton alignment="CENTER" onAction="#btnReportsOnAction" prefHeight="40.0" prefWidth="234.0" style="-fx-background-color: #3a5f71; -fx-background-radius: 10; -fx-font-size: 16px;" text="Reports" textFill="#f4f4f4" />
+
+                        <Label style="-fx-font-size: 16px; -fx-text-fill: #7f8c8d;" text="Settings" />
+                        <Label style="-fx-font-size: 16px; -fx-text-fill: #7f8c8d;" text="Help" />
+                        <Label style="-fx-font-size: 16px; -fx-text-fill: #e74c3c;" text="Logout" />
+
+                        <!-- Team Section -->
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-margin-top: 20;" text="Team" />
+                        <HBox spacing="10.0">
+                            <children>
+                                <Label style="-fx-background-color: #3498db; -fx-background-radius: 20; -fx-padding: 8 12; -fx-text-fill: white;" text="S" />
+                                <Label style="-fx-background-color: #e74c3c; -fx-background-radius: 20; -fx-padding: 8 12; -fx-text-fill: white;" text="M" />
+                                <Label style="-fx-background-color: #2ecc71; -fx-background-radius: 20; -fx-padding: 8 12; -fx-text-fill: white;" text="T" />
+                                <Label style="-fx-background-color: #f39c12; -fx-background-radius: 20; -fx-padding: 8 12; -fx-text-fill: white;" text="W" />
+                                <Label style="-fx-background-color: #9b59b6; -fx-background-radius: 20; -fx-padding: 8 12; -fx-text-fill: white;" text="T" />
+                                <Label style="-fx-background-color: #1abc9c; -fx-background-radius: 20; -fx-padding: 8 12; -fx-text-fill: white;" text="F" />
+                                <Label style="-fx-background-color: #e67e22; -fx-background-radius: 20; -fx-padding: 8 12; -fx-text-fill: white;" text="S" />
+                            </children>
+                        </HBox>
+
+                        <!-- Download Mobile App -->
+                        <VBox style="-fx-background-color: #3a5f71; -fx-background-radius: 15; -fx-padding: 15; -fx-margin-top: 30;">
+                            <children>
+                                <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: white;" text="Download our Mobile App" />
+                                <Label style="-fx-font-size: 12px; -fx-text-fill: #ecf0f1;" text="Get easy in another way" />
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+            <AnchorPane fx:id="dashRoot" prefHeight="762.0" prefWidth="1166.0" />
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>
