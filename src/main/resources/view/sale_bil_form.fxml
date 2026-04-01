@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="764.0" prefWidth="1192.0"
-            style="-fx-background-color: #f8fafc; -fx-padding: 20; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15, 0, 0, 4);"
-            xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.SaleBillController">
+<AnchorPane prefHeight="764.0" prefWidth="1192.0" style="-fx-background-color: #f8fafc; -fx-padding: 20; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15, 0, 0, 4);" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SaleBillController">
 
-    <BorderPane AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
-                AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
-                style="-fx-background-color: transparent;">
+    <BorderPane style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
 
         <!-- ==================== TOP SECTION ==================== -->
         <top>
             <VBox spacing="12" style="-fx-background-color: transparent;">
-                <Label text="💰 SALES AND BILLING MANAGEMENT"
-                       style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #1e3a5f; -fx-font-family: 'Segoe UI'; -fx-padding: 10 0 0 15;"/>
+                <Label style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #1e3a5f; -fx-font-family: 'Segoe UI'; -fx-padding: 10 0 0 15;" text="💰 SALES AND BILLING MANAGEMENT" />
 
-                <HBox spacing="20" alignment="CENTER_RIGHT" style="-fx-padding: 0 20 10 20;">
-                    <Button text="⚠️ LOW STOCK ALERT" onAction="#checkLowStock"
-                            style="-fx-background-color: #dc2626; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 16; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);"/>
-                    <Button text="📊 DAILY SALES REPORT" onAction="#showDailyReport"
-                            style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 16; -fx-cursor: hand;"/>
+                <HBox alignment="CENTER_RIGHT" spacing="20" style="-fx-padding: 0 20 10 20;">
+                    <Button onAction="#checkLowStock" style="-fx-background-color: #dc2626; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 16; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);" text="⚠ LOW STOCK ALERT" />
+                    <Button onAction="#showDailyReport" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 16; -fx-cursor: hand;" text="📊 DAILY SALES REPORT" />
                 </HBox>
-                <Separator style="-fx-background-color: #cbd5e1;"/>
+                <Separator style="-fx-background-color: #cbd5e1;" />
             </VBox>
         </top>
 
@@ -34,56 +40,63 @@
         <center>
             <TabPane style="-fx-background-color: transparent; -fx-tab-min-height: 40px; -fx-tab-max-height: 40px; -fx-padding: 5 0 0 0;">
                 <!-- Tab 1: New Sale -->
-                <Tab text="🛒 NEW SALE" closable="false">
+                <Tab closable="false" text="🛒 NEW SALE">
                     <VBox spacing="15" style="-fx-padding: 15; -fx-background-color: transparent;">
                         <HBox spacing="20" VBox.vgrow="ALWAYS">
                             <!-- Left: Customer & Product Selection -->
-                            <VBox spacing="15" style="-fx-background-color: white; -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 8, 0, 0, 2); -fx-padding: 20;" prefWidth="320">
-                                <Label text="👤 CUSTOMER DETAILS"
-                                       style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #0f3b5c; -fx-border-color: #bae6fd; -fx-border-width: 0 0 2 0; -fx-padding: 0 0 8 0;"/>
+                            <VBox prefWidth="320" spacing="15" style="-fx-background-color: white; -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 8, 0, 0, 2); -fx-padding: 20;">
+                                <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #0f3b5c; -fx-border-color: #bae6fd; -fx-border-width: 0 0 2 0; -fx-padding: 0 0 8 0;" text="👤 CUSTOMER DETAILS" />
                                 <GridPane hgap="12" vgap="12">
-                                    <Label text="Name:" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-text-fill: #2c3e66;"/>
-                                    <TextField fx:id="customerNameField" promptText="Customer name" GridPane.rowIndex="0" GridPane.columnIndex="1"
-                                               style="-fx-background-radius: 8; -fx-padding: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8;"/>
-                                    <Label text="Contact:" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-text-fill: #2c3e66;"/>
-                                    <TextField fx:id="customerContactField" promptText="Phone number" GridPane.rowIndex="1" GridPane.columnIndex="1"
-                                               style="-fx-background-radius: 8; -fx-padding: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8;"/>
-                                    <Label text="Address:" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-text-fill: #2c3e66;"/>
-                                    <TextArea fx:id="customerAddressField" promptText="Billing address" prefHeight="60" wrapText="true" GridPane.rowIndex="2" GridPane.columnIndex="1"
-                                              style="-fx-background-radius: 8; -fx-padding: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8;"/>
+                                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2c3e66;" text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                    <TextField fx:id="customerNameField" promptText="Customer name" style="-fx-background-radius: 8; -fx-padding: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2c3e66;" text="Contact:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                    <TextField fx:id="customerContactField" promptText="Phone number" style="-fx-background-radius: 8; -fx-padding: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2c3e66;" text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                    <TextArea fx:id="customerAddressField" prefHeight="60" promptText="Billing address" style="-fx-background-radius: 8; -fx-padding: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8;" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           <columnConstraints>
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                           </rowConstraints>
                                 </GridPane>
 
-                                <Separator style="-fx-background-color: #e2e8f0;"/>
+                                <Separator style="-fx-background-color: #e2e8f0;" />
 
-                                <Label text="💊 ADD ITEMS"
-                                       style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #0f3b5c; -fx-border-color: #bae6fd; -fx-border-width: 0 0 2 0; -fx-padding: 0 0 8 0;"/>
+                                <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #0f3b5c; -fx-border-color: #bae6fd; -fx-border-width: 0 0 2 0; -fx-padding: 0 0 8 0;" text="💊 ADD ITEMS" />
                                 <GridPane hgap="12" vgap="12">
-                                    <Label text="Medicine:" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-text-fill: #2c3e66;"/>
-                                    <ComboBox fx:id="medicineComboBox" promptText="Select medicine" GridPane.rowIndex="0" GridPane.columnIndex="1"
-                                              style="-fx-background-radius: 8; -fx-padding: 4; -fx-border-color: #cbd5e1; -fx-border-radius: 8;"/>
-                                    <Label text="Quantity:" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-text-fill: #2c3e66;"/>
-                                    <TextField fx:id="quantityField" promptText="Qty" GridPane.rowIndex="1" GridPane.columnIndex="1"
-                                               style="-fx-background-radius: 8; -fx-padding: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8;"/>
-                                    <Label text="Unit Price:" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-text-fill: #2c3e66;"/>
-                                    <TextField fx:id="unitPriceField" promptText="Auto-filled" editable="false" GridPane.rowIndex="2" GridPane.columnIndex="1"
-                                               style="-fx-background-radius: 8; -fx-padding: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8; -fx-background-color: #f1f5f9;"/>
+                                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2c3e66;" text="Medicine:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                    <ComboBox fx:id="medicineComboBox" promptText="Select medicine" style="-fx-background-radius: 8; -fx-padding: 4; -fx-border-color: #cbd5e1; -fx-border-radius: 8;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2c3e66;" text="Quantity:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                    <TextField fx:id="quantityField" promptText="Qty" style="-fx-background-radius: 8; -fx-padding: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2c3e66;" text="Unit Price:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                    <TextField fx:id="unitPriceField" editable="false" promptText="Auto-filled" style="-fx-background-radius: 8; -fx-padding: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8; -fx-background-color: #f1f5f9;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           <columnConstraints>
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                           </rowConstraints>
                                 </GridPane>
-                                <Button text="➕ ADD TO CART" onAction="#addToCart"
-                                        style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 25; -fx-padding: 8 20; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0, 0, 1);"/>
+                                <Button onAction="#addToCart" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 25; -fx-padding: 8 20; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0, 0, 1);" text="➕ ADD TO CART" />
                             </VBox>
 
                             <!-- Right: Cart Table -->
                             <VBox spacing="10" HBox.hgrow="ALWAYS">
-                                <Label text="🛒 CURRENT CART"
-                                       style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #1e3a5f; -fx-padding: 0 0 5 0;"/>
-                                <TableView fx:id="cartTable"
-                                           style="-fx-background-color: white; -fx-border-color: #e2e8f0; -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 2;" VBox.vgrow="ALWAYS">
+                                <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #1e3a5f; -fx-padding: 0 0 5 0;" text="🛒 CURRENT CART" />
+                                <TableView fx:id="cartTable" style="-fx-background-color: white; -fx-border-color: #e2e8f0; -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 2;" VBox.vgrow="ALWAYS">
                                     <columns>
-                                        <TableColumn fx:id="medicineNameColumn" text="Medicine" prefWidth="200"/>
-                                        <TableColumn fx:id="qtyColumn" text="Quantity" prefWidth="80"/>
-                                        <TableColumn fx:id="unitPriceColumn" text="Unit Price" prefWidth="100"/>
-                                        <TableColumn fx:id="totalColumn" text="Total" prefWidth="100"/>
-                                        <TableColumn fx:id="actionColumn" text="Action" prefWidth="80"/>
+                                        <TableColumn fx:id="medicineNameColumn" prefWidth="200" text="Medicine" />
+                                        <TableColumn fx:id="qtyColumn" prefWidth="80" text="Quantity" />
+                                        <TableColumn fx:id="unitPriceColumn" prefWidth="100" text="Unit Price" />
+                                        <TableColumn fx:id="totalColumn" prefWidth="100" text="Total" />
+                                        <TableColumn fx:id="actionColumn" prefWidth="80" text="Action" />
                                     </columns>
                                     <style>
                                         .table-row-cell:odd {
@@ -104,52 +117,44 @@
                                     </style>
                                 </TableView>
 
-                                <HBox spacing="10" alignment="CENTER_RIGHT">
-                                    <Button text="🗑️ REMOVE SELECTED" onAction="#removeFromCart"
-                                            style="-fx-background-color: #ef4444; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-padding: 6 12; -fx-cursor: hand;"/>
-                                    <Button text="🧹 CLEAR CART" onAction="#clearCart"
-                                            style="-fx-background-color: #6b7280; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-padding: 6 12; -fx-cursor: hand;"/>
+                                <HBox alignment="CENTER_RIGHT" spacing="10">
+                                    <Button onAction="#removeFromCart" style="-fx-background-color: #ef4444; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-padding: 6 12; -fx-cursor: hand;" text="REMOVE SELECTED" />
+                                    <Button onAction="#clearCart" style="-fx-background-color: #6b7280; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-padding: 6 12; -fx-cursor: hand;" text="CLEAR CART" />
                                 </HBox>
                             </VBox>
                         </HBox>
 
                         <!-- Bottom: Totals & Actions -->
-                        <HBox spacing="15" alignment="CENTER_RIGHT" style="-fx-padding: 10 0 0 0;">
+                        <HBox alignment="CENTER_RIGHT" spacing="15" style="-fx-padding: 10 0 0 0;">
                             <VBox alignment="CENTER_RIGHT">
-                                <Label text="Subtotal:" style="-fx-font-size: 14px; -fx-text-fill: #2c3e66;"/>
-                                <Label fx:id="subtotalLabel" text="Rs 0.00" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1e3a5f;"/>
-                                <Label text="Tax (5%):" style="-fx-font-size: 14px; -fx-text-fill: #2c3e66; -fx-padding: 5 0 0 0;"/>
-                                <Label fx:id="taxLabel" text="Rs 0.00" style="-fx-font-size: 14px; -fx-text-fill: #2c3e66;"/>
-                                <Label text="Total:" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e66; -fx-padding: 8 0 0 0;"/>
-                                <Label fx:id="totalLabel" text="Rs 0.00" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #10b981;"/>
+                                <Label style="-fx-font-size: 14px; -fx-text-fill: #2c3e66;" text="Subtotal:" />
+                                <Label fx:id="subtotalLabel" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1e3a5f;" text="Rs 0.00" />
+                                <Label style="-fx-font-size: 14px; -fx-text-fill: #2c3e66; -fx-padding: 5 0 0 0;" text="Tax (5%):" />
+                                <Label fx:id="taxLabel" style="-fx-font-size: 14px; -fx-text-fill: #2c3e66;" text="Rs 0.00" />
+                                <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e66; -fx-padding: 8 0 0 0;" text="Total:" />
+                                <Label fx:id="totalLabel" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #10b981;" text="Rs 0.00" />
                             </VBox>
-                            <Button text="🧾 GENERATE INVOICE" onAction="#generateInvoice"
-                                    style="-fx-background-color: #0891b2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 30; -fx-padding: 12 24; -fx-font-size: 16px; -fx-cursor: hand;"/>
-                            <Button text="🖨️ PRINT INVOICE" onAction="#printInvoice"
-                                    style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 30; -fx-padding: 12 24; -fx-font-size: 16px; -fx-cursor: hand;"/>
+                            <Button onAction="#generateInvoice" style="-fx-background-color: #0891b2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 30; -fx-padding: 12 24; -fx-font-size: 16px; -fx-cursor: hand;" text="🧾 GENERATE INVOICE" />
+                            <Button onAction="#printInvoice" style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 30; -fx-padding: 12 24; -fx-font-size: 16px; -fx-cursor: hand;" text="🖨️ PRINT INVOICE" />
                         </HBox>
                     </VBox>
                 </Tab>
 
                 <!-- Tab 2: Sales History -->
-                <Tab text="📜 SALES HISTORY" closable="false">
+                <Tab closable="false" text="📜 SALES HISTORY">
                     <VBox spacing="15" style="-fx-padding: 15; -fx-background-color: transparent;">
-                        <HBox spacing="10" alignment="CENTER_LEFT">
-                            <TextField fx:id="searchHistoryField" promptText="Search by invoice ID or customer"
-                                       style="-fx-background-radius: 8; -fx-padding: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8;" HBox.hgrow="ALWAYS"/>
-                            <Button text="🔍 SEARCH" onAction="#searchSalesHistory"
-                                    style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 16; -fx-cursor: hand;"/>
-                            <Button text="🔄 REFRESH" onAction="#refreshSalesHistory"
-                                    style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 16; -fx-cursor: hand;"/>
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <TextField fx:id="searchHistoryField" promptText="Search by invoice ID or customer" style="-fx-background-radius: 8; -fx-padding: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8;" HBox.hgrow="ALWAYS" />
+                            <Button onAction="#searchSalesHistory" style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 16; -fx-cursor: hand;" text="🔍 SEARCH" />
+                            <Button onAction="#refreshSalesHistory" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 16; -fx-cursor: hand;" text="🔄 REFRESH" />
                         </HBox>
-                        <TableView fx:id="salesHistoryTable"
-                                   style="-fx-background-color: white; -fx-border-color: #e2e8f0; -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 2;" VBox.vgrow="ALWAYS">
+                        <TableView fx:id="salesHistoryTable" style="-fx-background-color: white; -fx-border-color: #e2e8f0; -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 2;" VBox.vgrow="ALWAYS">
                             <columns>
-                                <TableColumn fx:id="invoiceIdColumn" text="Invoice ID" prefWidth="100"/>
-                                <TableColumn fx:id="dateColumn" text="Date" prefWidth="130"/>
-                                <TableColumn fx:id="customerColumn" text="Customer Name" prefWidth="180"/>
-                                <TableColumn fx:id="totalAmountColumn" text="Total Amount" prefWidth="120"/>
-                                <TableColumn fx:id="statusColumn" text="Status" prefWidth="100"/>
+                                <TableColumn fx:id="invoiceIdColumn" prefWidth="100" text="Invoice ID" />
+                                <TableColumn fx:id="dateColumn" prefWidth="130" text="Date" />
+                                <TableColumn fx:id="customerColumn" prefWidth="180" text="Customer Name" />
+                                <TableColumn fx:id="totalAmountColumn" prefWidth="120" text="Total Amount" />
+                                <TableColumn fx:id="statusColumn" prefWidth="100" text="Status" />
                             </columns>
                             <style>
                                 .table-row-cell:odd {
@@ -169,11 +174,9 @@
                                 }
                             </style>
                         </TableView>
-                        <HBox spacing="10" alignment="CENTER_RIGHT">
-                            <Button text="📄 VIEW DETAILS" onAction="#viewInvoiceDetails"
-                                    style="-fx-background-color: #0891b2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 16; -fx-cursor: hand;"/>
-                            <Button text="🖨️ REPRINT INVOICE" onAction="#reprintInvoice"
-                                    style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 16; -fx-cursor: hand;"/>
+                        <HBox alignment="CENTER_RIGHT" spacing="10">
+                            <Button onAction="#viewInvoiceDetails" style="-fx-background-color: #0891b2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 16; -fx-cursor: hand;" text="📄 VIEW DETAILS" />
+                            <Button onAction="#reprintInvoice" style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 16; -fx-cursor: hand;" text="🖨 REPRINT INVOICE" />
                         </HBox>
                     </VBox>
                 </Tab>
@@ -182,11 +185,11 @@
 
         <!-- ==================== BOTTOM STATUS ==================== -->
         <bottom>
-            <HBox style="-fx-background-color: #eef2ff; -fx-padding: 8 20; -fx-border-radius: 12; -fx-background-radius: 12;" spacing="15" alignment="CENTER_LEFT">
-                <Label text="✅ Ready" style="-fx-text-fill: #1e4620; -fx-font-size: 12px;"/>
-                <Label text="💡 Double-click cart item to edit" style="-fx-text-fill: #2c3e66; -fx-font-size: 11px;"/>
-                <Region HBox.hgrow="ALWAYS"/>
-                <Label text="🔄 Tax rate: 5% (configurable)" style="-fx-text-fill: #2c3e66; -fx-font-size: 11px;"/>
+            <HBox alignment="CENTER_LEFT" spacing="15" style="-fx-background-color: #eef2ff; -fx-padding: 8 20; -fx-border-radius: 12; -fx-background-radius: 12;">
+                <Label style="-fx-text-fill: #1e4620; -fx-font-size: 12px;" text="✅ Ready" />
+                <Label style="-fx-text-fill: #2c3e66; -fx-font-size: 11px;" text="💡 Double-click cart item to edit" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label style="-fx-text-fill: #2c3e66; -fx-font-size: 11px;" text="🔄 Tax rate: 5% (configurable)" />
             </HBox>
         </bottom>
     </BorderPane>
