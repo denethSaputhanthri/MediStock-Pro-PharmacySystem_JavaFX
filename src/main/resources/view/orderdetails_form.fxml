@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<AnchorPane prefHeight="764.0" prefWidth="1192.0"
+            style="-fx-background-color: #f8fafc; -fx-padding: 20; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15, 0, 0, 4);"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.OrderDetailsController">
+
+    <BorderPane AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+                AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+                style="-fx-background-color: transparent;">
+
+        <!-- ==================== TOP SECTION ==================== -->
+        <top>
+            <VBox spacing="12" style="-fx-background-color: transparent;">
+                <Label text="📦 ORDER MANAGEMENT"
+                       style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #1e3a5f; -fx-font-family: 'Segoe UI'; -fx-padding: 10 0 0 15;"/>
+
+                <HBox spacing="20" alignment="CENTER_RIGHT" style="-fx-padding: 0 20 10 20;">
+                    <Button text="🔄 UPDATE STATUS" onAction="#updateOrderStatus"
+                            style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 16; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);"/>
+                    <Button text="🖨️ PRINT ORDER" onAction="#printOrder"
+                            style="-fx-background-color: #0891b2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 16; -fx-cursor: hand;"/>
+                    <Button text="📎 EXPORT" onAction="#exportOrders"
+                            style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 16; -fx-cursor: hand;"/>
+                </HBox>
+                <Separator style="-fx-background-color: #cbd5e1;"/>
+            </VBox>
+        </top>
+
+        <!-- ==================== LEFT FORM (Order Header) ==================== -->
+        <left>
+            <VBox spacing="20" style="-fx-background-color: white; -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 8, 0, 0, 2); -fx-padding: 20;" prefWidth="320">
+                <Label text="📋 ORDER DETAILS"
+                       style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #0f3b5c; -fx-border-color: #bae6fd; -fx-border-width: 0 0 2 0; -fx-padding: 0 0 8 0;"/>
+
+                <GridPane hgap="12" vgap="12">
+                    <Label text="Order ID:" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-text-fill: #2c3e66;"/>
+                    <TextField fx:id="orderIdField" promptText="Auto-generated" editable="false" GridPane.rowIndex="0" GridPane.columnIndex="1"
+                               style="-fx-background-radius: 8; -fx-padding: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8; -fx-background-color: #f1f5f9;"/>
+
+                    <Label text="Order Date:" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-text-fill: #2c3e66;"/>
+                    <DatePicker fx:id="orderDatePicker" GridPane.rowIndex="1" GridPane.columnIndex="1"
+                                style="-fx-background-radius: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8;"/>
+
+                    <Label text="Supplier/Customer:" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-text-fill: #2c3e66;"/>
+                    <ComboBox fx:id="partyComboBox" promptText="Select" GridPane.rowIndex="2" GridPane.columnIndex="1"
+                              style="-fx-background-radius: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8;"/>
+
+                    <Label text="Order Type:" GridPane.rowIndex="3" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-text-fill: #2c3e66;"/>
+                    <ComboBox fx:id="orderTypeComboBox" GridPane.rowIndex="3" GridPane.columnIndex="1"
+                              style="-fx-background-radius: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8;">
+                        <items><FXCollections fx:factory="observableArrayList"><String fx:value="Purchase Order"/><String fx:value="Sales Order"/></FXCollections></items>
+                    </ComboBox>
+
+                    <Label text="Status:" GridPane.rowIndex="4" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-text-fill: #2c3e66;"/>
+                    <ComboBox fx:id="statusComboBox" GridPane.rowIndex="4" GridPane.columnIndex="1"
+                              style="-fx-background-radius: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8;">
+                        <items><FXCollections fx:factory="observableArrayList"><String fx:value="Pending"/><String fx:value="Processing"/><String fx:value="Shipped"/><String fx:value="Delivered"/><String fx:value="Cancelled"/></FXCollections></items>
+                    </ComboBox>
+
+                    <Label text="Total Amount:" GridPane.rowIndex="5" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-text-fill: #2c3e66;"/>
+                    <TextField fx:id="totalAmountField" promptText="0.00" editable="false" GridPane.rowIndex="5" GridPane.columnIndex="1"
+                               style="-fx-background-radius: 8; -fx-padding: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8; -fx-background-color: #f1f5f9;"/>
+                </GridPane>
+
+                <Separator/>
+
+                <Label text="➕ ADD ORDER ITEM"
+                       style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #0f3b5c;"/>
+                <GridPane hgap="8" vgap="8">
+                    <Label text="Product:" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-size: 12px;"/>
+                    <ComboBox fx:id="productComboBox" promptText="Select" GridPane.rowIndex="0" GridPane.columnIndex="1"
+                              style="-fx-background-radius: 6; -fx-border-color: #cbd5e1; -fx-border-radius: 6;"/>
+                    <Label text="Qty:" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-size: 12px;"/>
+                    <TextField fx:id="itemQuantityField" promptText="Qty" GridPane.rowIndex="1" GridPane.columnIndex="1"
+                               style="-fx-background-radius: 6; -fx-padding: 6; -fx-border-color: #cbd5e1; -fx-border-radius: 6;"/>
+                    <Label text="Price:" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-font-size: 12px;"/>
+                    <TextField fx:id="itemPriceField" promptText="Price" GridPane.rowIndex="2" GridPane.columnIndex="1"
+                               style="-fx-background-radius: 6; -fx-padding: 6; -fx-border-color: #cbd5e1; -fx-border-radius: 6;"/>
+                </GridPane>
+                <Button text="➕ ADD ITEM" onAction="#addOrderItem"
+                        style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-padding: 6; -fx-cursor: hand; -fx-font-size: 12px;"/>
+
+                <Separator/>
+
+                <HBox spacing="12" alignment="CENTER">
+                    <Button text="➕ CREATE ORDER" onAction="#createOrder"
+                            style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 25; -fx-padding: 8 20; -fx-cursor: hand;"/>
+                    <Button text="✏️ UPDATE ORDER" onAction="#updateOrder"
+                            style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 25; -fx-padding: 8 20; -fx-cursor: hand;"/>
+                    <Button text="🗑️ DELETE ORDER" onAction="#deleteOrder"
+                            style="-fx-background-color: #ef4444; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 25; -fx-padding: 8 20; -fx-cursor: hand;"/>
+                </HBox>
+            </VBox>
+        </left>
+
+        <!-- ==================== CENTER & BOTTOM: Orders Table + Items Table ==================== -->
+        <center>
+            <VBox spacing="10" style="-fx-padding: 10 20 10 15;">
+                <Label text="📋 ORDERS LIST"
+                       style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #1e3a5f; -fx-padding: 0 0 5 0;"/>
+                <TableView fx:id="ordersTable"
+                           style="-fx-background-color: white; -fx-border-color: #e2e8f0; -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 2;" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="orderIdColumn" text="Order ID" prefWidth="80"/>
+                        <TableColumn fx:id="orderDateColumn" text="Date" prefWidth="100"/>
+                        <TableColumn fx:id="partyColumn" text="Supplier/Customer" prefWidth="150"/>
+                        <TableColumn fx:id="typeColumn" text="Type" prefWidth="100"/>
+                        <TableColumn fx:id="statusColumn" text="Status" prefWidth="100"/>
+                        <TableColumn fx:id="totalColumn" text="Total" prefWidth="100"/>
+                    </columns>
+                    <style>
+                        .table-row-cell:odd {
+                        -fx-background-color: #f1f5f9;
+                        }
+                        .table-row-cell:even {
+                        -fx-background-color: white;
+                        }
+                        .table-row-cell:hover {
+                        -fx-background-color: #e0f2fe;
+                        }
+                        .table-view .column-header {
+                        -fx-background-color: #eef2ff;
+                        -fx-font-weight: bold;
+                        -fx-border-color: #cbd5e1;
+                        -fx-border-width: 0 0 1 0;
+                        }
+                    </style>
+                </TableView>
+            </VBox>
+        </center>
+
+        <bottom>
+            <VBox spacing="10" style="-fx-padding: 0 20 15 20;">
+                <Label text="📦 ORDER ITEMS"
+                       style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #1e3a5f;"/>
+                <TableView fx:id="orderItemsTable"
+                           style="-fx-background-color: white; -fx-border-color: #e2e8f0; -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 2;" prefHeight="180">
+                    <columns>
+                        <TableColumn fx:id="itemProductColumn" text="Product" prefWidth="200"/>
+                        <TableColumn fx:id="itemQuantityColumn" text="Quantity" prefWidth="100"/>
+                        <TableColumn fx:id="itemUnitPriceColumn" text="Unit Price" prefWidth="100"/>
+                        <TableColumn fx:id="itemTotalColumn" text="Total" prefWidth="100"/>
+                        <TableColumn fx:id="itemActionColumn" text="Action" prefWidth="80"/>
+                    </columns>
+                    <style>
+                        .table-row-cell:odd {
+                        -fx-background-color: #f1f5f9;
+                        }
+                        .table-row-cell:even {
+                        -fx-background-color: white;
+                        }
+                        .table-row-cell:hover {
+                        -fx-background-color: #e0f2fe;
+                        }
+                        .table-view .column-header {
+                        -fx-background-color: #eef2ff;
+                        -fx-font-weight: bold;
+                        }
+                    </style>
+                </TableView>
+                <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <Button text="🗑️ REMOVE ITEM" onAction="#removeOrderItem"
+                            style="-fx-background-color: #ef4444; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-padding: 6 12; -fx-cursor: hand;"/>
+                </HBox>
+            </VBox>
+        </bottom>
+    </BorderPane>
+</AnchorPane>
