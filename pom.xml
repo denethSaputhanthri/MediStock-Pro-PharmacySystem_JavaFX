@@ -26,6 +26,12 @@
             <artifactId>javafx-fxml</artifactId>
             <version>19</version>
         </dependency>
+        <!-- Needed for SwingFXUtils used by ReportController -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-swing</artifactId>
+            <version>19</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/com.jfoenix/jfoenix -->
         <dependency>
             <groupId>com.jfoenix</groupId>
