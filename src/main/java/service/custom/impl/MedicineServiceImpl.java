@@ -29,7 +29,7 @@ public class MedicineServiceImpl implements MedicineService {
 
     @Override
     public boolean deleteMedicine(String id) {
-        return medicineRepository.deleteById(Integer.valueOf(id));
+        return medicineRepository.deleteById(id);
     }
 
     @Override

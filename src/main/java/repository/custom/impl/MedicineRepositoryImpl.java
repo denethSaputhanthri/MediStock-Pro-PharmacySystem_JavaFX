@@ -50,7 +50,7 @@ public class MedicineRepositoryImpl implements MedicineRepository {
     }
 
     @Override
-    public Boolean deleteById(Integer id) {
+    public Boolean deleteById(String id) {
         try {
             return CrudUtill.execute("DELETE FROM medicine WHERE medicine_name=?", id);
         } catch (SQLException e) {
@@ -59,7 +59,7 @@ public class MedicineRepositoryImpl implements MedicineRepository {
     }
 
     @Override
-    public Medicine searchById(Integer integer) {
+    public Medicine searchById(String integer) {
         return null;
     }
 
