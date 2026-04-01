@@ -1,5 +1,5 @@
 package util;
 
 public enum ServiceType {
-    MEDICINE, ORDERDETAILS, SALEBILL, SUPPLIER;
+    MEDICINE, ORDERDETAILS, SALEBILL, SUPPLIER, REPORT;
 }
