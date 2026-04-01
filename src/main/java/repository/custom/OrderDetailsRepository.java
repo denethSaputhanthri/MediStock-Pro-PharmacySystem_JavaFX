@@ -1,7 +1,12 @@
 package repository.custom;
 
-import model.OderDetails;
+import model.OrderDetails;
 import repository.CrudRepository;
 
-public interface OrderDetailsRepository extends CrudRepository <OderDetails, Integer> {
+import java.util.List;
+
+public interface OrderDetailsRepository extends CrudRepository<OrderDetails, Integer> {
+    Boolean createBatch(List<OrderDetails> orderDetailsList);
+    List<OrderDetails> getByBillId(Integer billId);
+    Boolean deleteByBillId(Integer billId);
 }

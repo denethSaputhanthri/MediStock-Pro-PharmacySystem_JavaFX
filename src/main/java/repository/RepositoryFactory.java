@@ -2,6 +2,7 @@ package repository;
 
 import repository.custom.impl.MedicineRepositoryImpl;
 import repository.custom.impl.OrderDetailsRepositoryImpl;
+import repository.custom.impl.ReportRepositoryImpl;
 import repository.custom.impl.SaleBillRepositoryImpl;
 import repository.custom.impl.SupplierRepositoryImpl;
 
@@ -22,6 +23,7 @@ public class RepositoryFactory {
             case SALEBILL : return (T) new SaleBillRepositoryImpl();
             case SUPPLIER : return (T) new SupplierRepositoryImpl();
             case ORDERDETAILS: return (T) new OrderDetailsRepositoryImpl();
+            case REPORT: return (T) new ReportRepositoryImpl();
         }
         return null;
     }
