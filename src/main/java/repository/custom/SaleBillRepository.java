@@ -1,7 +1,7 @@
 package repository.custom;
 
-import model.SaleAndBill;
+import model.SaleBill;
 import repository.CrudRepository;
 
-public interface SaleBillRepository extends CrudRepository<SaleAndBill, Integer> {
+public interface SaleBillRepository extends CrudRepository<SaleBill, Integer> {
 }
