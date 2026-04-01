@@ -54,7 +54,7 @@
                         </VBox>
                     </children>
                 </VBox>
-            <AnchorPane fx:id="dashRoot" prefHeight="762.0" prefWidth="1166.0" />
+            <AnchorPane fx:id="dashRoot" prefHeight="762.0" prefWidth="1186.0" />
             </children>
         </HBox>
     </children>

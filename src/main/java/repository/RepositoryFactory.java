@@ -1,5 +1,12 @@
 package repository;
 
+import repository.custom.impl.MedicineRepositoryImpl;
+import repository.custom.impl.OrderDetailsRepositoryImpl;
+import repository.custom.impl.SaleBillRepositoryImpl;
+import repository.custom.impl.SupplierRepositoryImpl;
+
+import util.RepositoryType;
+
 public class RepositoryFactory {
     private static RepositoryFactory instance;
 
@@ -11,7 +18,10 @@ public class RepositoryFactory {
 
     public <T extends SuperRepository>T getRepositoryType(RepositoryType type){
         switch (type){
-            case CUSTOMER : return (T) new CustomerRepositoryImpl();
+            case MEDICINE : return (T) new MedicineRepositoryImpl();
+            case SALEBILL : return (T) new SaleBillRepositoryImpl();
+            case SUPPLIER : return (T) new SupplierRepositoryImpl();
+            case ORDERDETAILS: return (T) new OrderDetailsRepositoryImpl();
         }
         return null;
     }
