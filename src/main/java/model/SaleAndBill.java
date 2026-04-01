@@ -11,8 +11,11 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @ToString
 public class SaleAndBill {
-    private Integer id;
-    private Integer quantity_sold;
-    private LocalDate sale_date;
-    private boolean total_price;
+    private Integer invoiceId;
+    private String medicineName;
+    private Double unitPrice;
+    private Double discount;
+    private Integer quantity;
+    private LocalDate saleDate;
+    private Double totalPrice;
 }
