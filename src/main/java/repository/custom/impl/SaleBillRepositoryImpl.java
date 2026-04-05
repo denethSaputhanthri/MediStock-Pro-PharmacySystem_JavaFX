@@ -14,11 +14,12 @@ public class SaleBillRepositoryImpl implements SaleBillRepository {
     @Override
     public Boolean create(SaleBill saleBill) {
         try {
-            return CrudUtill.execute("INSERT INTO sale_bill VALUES(?,?,?,?)",
+            return CrudUtill.execute(  "INSERT INTO sale_bill (bill_id, date, total_amount, customer_name, paid_status) VALUES (?,?,?,?,?)",
                     saleBill.getBillId(),
                     saleBill.getDate(),
                     saleBill.getTotalAmount(),
-                    saleBill.getCustomerName()
+                    saleBill.getCustomerName(),
+                    saleBill.getPaidStatus()
             );
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -28,10 +29,11 @@ public class SaleBillRepositoryImpl implements SaleBillRepository {
     @Override
     public Boolean update(SaleBill saleBill) {
         try {
-            return CrudUtill.execute("UPDATE sale_bill SET date = ?, total_amount = ?, customer_name = ? WHERE bill_id = ?",
+            return CrudUtill.execute("UPDATE sale_bill SET date = ?, total_amount = ?, customer_name = ?,paid_status=? WHERE bill_id = ?",
                     saleBill.getDate(),
                     saleBill.getTotalAmount(),
                     saleBill.getCustomerName(),
+                    saleBill.getPaidStatus(),
                     saleBill.getBillId()
             );
         } catch (SQLException e) {
@@ -57,7 +59,8 @@ public class SaleBillRepositoryImpl implements SaleBillRepository {
                         resultSet.getInt(1),
                         resultSet.getDate(2).toLocalDate(),
                         resultSet.getDouble(3),
-                        resultSet.getString(4)
+                        resultSet.getString(4),
+                        resultSet.getString(5)
                 );
             }
             return null;
@@ -77,9 +80,10 @@ public class SaleBillRepositoryImpl implements SaleBillRepository {
                                 resultSet.getInt(1),
                                 resultSet.getDate(2).toLocalDate(),
                                 resultSet.getDouble(3),
-                                resultSet.getString(4)
+                                resultSet.getString(4),
+                                resultSet.getString(5
                         )
-                );
+                ));
             }
             return saleBillsArrayList;
         } catch (SQLException e) {

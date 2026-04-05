@@ -9,10 +9,7 @@ import javafx.print.PrinterJob;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
-import model.CartItem;
-import model.Medicine;
-import model.OrderDetails;
-import model.SaleBill;
+import model.*;
 import service.ServiceFactory;
 import service.custom.MedicineService;
 import service.custom.OrderDetailsService;
@@ -141,10 +138,14 @@ public class SaleBillController implements Initializable {
                 showAlert("Stock Error", "Insufficient stock! Available: " + medicine.getQuantity(), Alert.AlertType.WARNING);
                 return;
             }
+            double totalPrice = quantity * unitPrice;
 
-            CartItem cartItem = new CartItem(medicine.getId(), medicineName, quantity, unitPrice, quantity * unitPrice, 0.0);
+            CartItem cartItem = new CartItem(medicine.getId(), medicineName, quantity, unitPrice, totalPrice, 0.0);
             cartItems.add(cartItem);
 
+
+            SaleBill saleBill = new SaleBill(null, LocalDate.now(), totalPrice, customerNameField.getText(),"Done");
+            saleBillService.addSaleBill(saleBill);
             calculateTotals();
             clearMedicineFields();
 
@@ -201,15 +202,9 @@ public class SaleBillController implements Initializable {
 
             Double totalAmount = calculateSubtotal() + calculateTax();
 
-            SaleBill saleBill = new SaleBill(null, LocalDate.now(), totalAmount, customerName);
-            boolean billSaved = saleBillService.addSaleBill(saleBill);
-
-            if (!billSaved) {
-                showAlert("Error", "Failed to save bill", Alert.AlertType.ERROR);
-                return;
-            }
 
             List<SaleBill> allBills = saleBillService.getAll();
+            System.out.println(allBills);
             if (allBills.isEmpty()) {
                 showAlert("Error", "Failed to retrieve saved bill", Alert.AlertType.ERROR);
                 return;
@@ -372,6 +367,9 @@ public class SaleBillController implements Initializable {
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
         customerColumn.setCellValueFactory(new PropertyValueFactory<>("customerName"));
         totalAmountColumn.setCellValueFactory(new PropertyValueFactory<>("totalAmount"));
+        statusColumn.setCellValueFactory(new PropertyValueFactory<>("paidStatus"));
+        salesHistoryTable.setItems(salesHistory);
+
 
         loadMedicineComboBox();
         loadSalesHistory();
@@ -551,6 +549,9 @@ public class SaleBillController implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText(content);
         alert.showAndWait();
+    }
+
+    private class SalesHistoryTable {
     }
 }
 
