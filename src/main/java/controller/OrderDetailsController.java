@@ -108,7 +108,7 @@ public class OrderDetailsController implements Initializable {
             String customerName = "Walk-in Customer";
             Double totalAmount = calculateTotalFromItems(orderItemsList);
 
-            SaleBill saleBill = new SaleBill(null, LocalDate.now(), totalAmount, customerName);
+            SaleBill saleBill = new SaleBill(null, LocalDate.now(), totalAmount, customerName,"");
             boolean billSaved = saleBillService.addSaleBill(saleBill);
 
             if (!billSaved) {
