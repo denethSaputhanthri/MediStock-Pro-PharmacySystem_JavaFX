@@ -142,7 +142,7 @@ public class SaleBillController implements Initializable {
                 return;
             }
 
-            CartItem cartItem = new CartItem(medicine.getId(), medicineName, quantity, unitPrice);
+            CartItem cartItem = new CartItem(medicine.getId(), medicineName, quantity, unitPrice, quantity * unitPrice, 0.0);
             cartItems.add(cartItem);
 
             calculateTotals();
@@ -364,6 +364,7 @@ public class SaleBillController implements Initializable {
         qtyColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         unitPriceColumn.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
         totalColumn.setCellValueFactory(new PropertyValueFactory<>("total"));
+        actionColumn.setCellValueFactory(new PropertyValueFactory<>("discount"));
 
         cartTable.setItems(cartItems);
 

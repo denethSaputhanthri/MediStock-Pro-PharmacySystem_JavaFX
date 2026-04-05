@@ -15,16 +15,5 @@ public class CartItem {
     private Integer quantity;
     private Double unitPrice;
     private Double total;
-
-    public CartItem(Integer medicineId, String medicineName, Integer quantity, Double unitPrice) {
-        this.medicineId = medicineId;
-        this.medicineName = medicineName;
-        this.quantity = quantity;
-        this.unitPrice = unitPrice;
-        this.total = quantity * unitPrice;
-    }
-
-    public void calculateTotal() {
-        this.total = this.quantity * this.unitPrice;
-    }
+    private Double discount;
 }
