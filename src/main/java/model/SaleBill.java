@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -16,4 +17,5 @@ public class SaleBill {
     private LocalDate date;
     private Double totalAmount;
     private String customerName;
+    private String paidStatus;
 }

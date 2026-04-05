@@ -3,16 +3,38 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ResourceBundle;
 
-public class NavbarController {
+
+public class NavbarController implements Initializable {
 
     @FXML
     private AnchorPane dashRoot;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadDashboard();
+    }
+    private void loadDashboard() {
+        try {
+            URL resource = getClass().getResource("/view/dashboard_form.fxml");
+            Parent parent = FXMLLoader.load(resource);
+            dashRoot.getChildren().clear();
+            dashRoot.getChildren().add(parent);
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+    }
 
     @FXML
     void btnDashboardOnAction(ActionEvent event) {
@@ -91,4 +113,5 @@ public class NavbarController {
             throw new RuntimeException(e);
         }
     }
+
 }

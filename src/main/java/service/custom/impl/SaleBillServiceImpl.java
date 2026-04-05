@@ -18,6 +18,7 @@ public class SaleBillServiceImpl implements SaleBillService {
 
     @Override
     public boolean addSaleBill(SaleBill saleBill) {
+        System.out.println("Adding SaleBill: " + saleBill);
         if (saleBill == null) {
             return false;
         }

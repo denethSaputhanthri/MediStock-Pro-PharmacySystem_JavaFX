@@ -12,7 +12,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.Medicine;
 import service.ServiceFactory;
 import service.custom.MedicineService;
-import service.custom.impl.MedicineServiceImpl;
 import util.ServiceType;
 
 import java.net.URL;
