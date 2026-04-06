@@ -38,6 +38,19 @@ public class OrderDetailsController implements Initializable {
     private ObservableList<OrderDetails> orderDetailsObservableList = FXCollections.observableArrayList();
     private ObservableList<OrderDetails> orderItemsList = FXCollections.observableArrayList();
 
+    // Already present and correct:
+
+    @FXML
+    private TextField itemQuantityField;
+    // not txtQuantity
+    @FXML
+    private TextField itemPriceField;
+    // not txtUnitPrice
+
+    @FXML
+    private TableView<?> ordersTable;
+    // for the main orders list
+
     @FXML
     private TableView<OrderDetails> orderDetailsTable;
 
@@ -67,6 +80,9 @@ public class OrderDetailsController implements Initializable {
 
     @FXML
     private ComboBox<String> cmbMedicine;
+
+    @FXML
+    private ComboBox<String> productCmb;
 
     @FXML
     private TextField txtQuantity;
@@ -146,25 +162,25 @@ public class OrderDetailsController implements Initializable {
 
     public void addOrderItem(ActionEvent actionEvent) {
         try {
-            String medicineName = cmbMedicine.getValue();
+            String medicineName = productCmb.getValue();
             if (medicineName == null || medicineName.isEmpty()) {
                 showAlert("Validation Error", "Please select a medicine", Alert.AlertType.WARNING);
                 return;
             }
 
-            String qtyText = txtQuantity.getText();
+            String qtyText = itemQuantityField.getText();
             if (qtyText == null || qtyText.isEmpty()) {
                 showAlert("Validation Error", "Please enter quantity", Alert.AlertType.WARNING);
                 return;
             }
 
-            String priceText = txtUnitPrice.getText();
+            String priceText = itemPriceField.getText();
             if (priceText == null || priceText.isEmpty()) {
                 showAlert("Validation Error", "Please enter unit price", Alert.AlertType.WARNING);
                 return;
             }
 
-            Integer quantity = Integer.parseInt(qtyText);
+            Integer quantity = Integer.parseInt(itemQuantityField.getText());
             Double unitPrice = Double.parseDouble(priceText);
 
             if (quantity <= 0) {
@@ -365,6 +381,7 @@ public class OrderDetailsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         if (colOrderDetailId != null) {
             colOrderDetailId.setCellValueFactory(new PropertyValueFactory<>("orderDetailId"));
         }
@@ -439,16 +456,14 @@ public class OrderDetailsController implements Initializable {
     }
 
     private void loadMedicineComboBox() {
-        if (cmbMedicine == null) return;
-        
+
         List<Medicine> medicines = medicineService.getAll();
         ObservableList<String> medicineNames = FXCollections.observableArrayList();
-        
         for (Medicine medicine : medicines) {
             medicineNames.add(medicine.getName());
         }
-        
-        cmbMedicine.setItems(medicineNames);
+        productCmb.setItems(medicineNames);
+
     }
 
     private void loadAllOrderDetails() {
