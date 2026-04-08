@@ -13,10 +13,12 @@ import javafx.scene.text.Text;
 import model.Medicine;
 import model.OrderDetails;
 import model.SaleBill;
+import model.Supplier;
 import service.ServiceFactory;
 import service.custom.MedicineService;
 import service.custom.OrderDetailsService;
 import service.custom.SaleBillService;
+import service.custom.SupplierService;
 import util.ServiceType;
 
 import java.io.BufferedWriter;
@@ -34,11 +36,25 @@ public class OrderDetailsController implements Initializable {
     OrderDetailsService orderDetailsService = ServiceFactory.getInstance().getServiceType(ServiceType.ORDERDETAILS);
     SaleBillService saleBillService = ServiceFactory.getInstance().getServiceType(ServiceType.SALEBILL);
     MedicineService medicineService = ServiceFactory.getInstance().getServiceType(ServiceType.MEDICINE);
+    SupplierService suppliService = ServiceFactory.getInstance().getServiceType(ServiceType.SUPPLIER);
 
     private ObservableList<OrderDetails> orderDetailsObservableList = FXCollections.observableArrayList();
     private ObservableList<OrderDetails> orderItemsList = FXCollections.observableArrayList();
 
     // Already present and correct:
+
+
+    @FXML
+    private TableColumn<?, ?> partyColumn;
+
+    @FXML
+    private ComboBox<String> partyComboBox;
+
+    @FXML
+    private TableColumn<OrderDetails, Double> itemUnitPriceColumn;
+
+    @FXML
+    private TableColumn<OrderDetails, String> itemProductColumn;
 
     @FXML
     private TextField itemQuantityField;
@@ -121,7 +137,11 @@ public class OrderDetailsController implements Initializable {
                 return;
             }
 
-            String customerName = "Walk-in Customer";
+            String customerName = partyComboBox.getValue();
+            if (customerName == null || customerName.isEmpty()) {
+                showAlert("Validation Error", "Please select a customer/supplier", Alert.AlertType.WARNING);
+                return;
+            }
             Double totalAmount = calculateTotalFromItems(orderItemsList);
 
             SaleBill saleBill = new SaleBill(null, LocalDate.now(), totalAmount, customerName,"");
@@ -202,6 +222,7 @@ public class OrderDetailsController implements Initializable {
             int nextId = orderItemsList.size() + 1;
             OrderDetails orderDetail = new OrderDetails(nextId, null, medicine.getId(), quantity, unitPrice);
             orderItemsList.add(orderDetail);
+            //System.out.println(orderItemsList);
 
             clearFields();
             showAlert("Success", "Item added to order", Alert.AlertType.INFORMATION);
@@ -415,8 +436,9 @@ public class OrderDetailsController implements Initializable {
         if (itemQuantityColumn != null) {
             itemQuantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         }
-        if (itemPriceColumn != null) {
-            itemPriceColumn.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
+
+        if (itemUnitPriceColumn != null) {
+            itemUnitPriceColumn.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
         }
         if (itemTotalColumn != null) {
             itemTotalColumn.setCellValueFactory(cellData -> {
@@ -438,7 +460,7 @@ public class OrderDetailsController implements Initializable {
         if (orderItemsTable != null) {
             orderItemsTable.setItems(orderItemsList);
         }
-
+        loadSupplierOrCustomerComboBox();
         loadMedicineComboBox();
         loadAllOrderDetails();
         updateStatistics();
@@ -456,14 +478,20 @@ public class OrderDetailsController implements Initializable {
     }
 
     private void loadMedicineComboBox() {
-
         List<Medicine> medicines = medicineService.getAll();
         ObservableList<String> medicineNames = FXCollections.observableArrayList();
         for (Medicine medicine : medicines) {
             medicineNames.add(medicine.getName());
         }
         productCmb.setItems(medicineNames);
-
+    }
+    private void loadSupplierOrCustomerComboBox() {
+        List<Supplier> supplierList = suppliService.getAll();
+        ObservableList<String> supplierNames = FXCollections.observableArrayList();
+        for (Supplier supplier : supplierList) {
+            supplierNames.add(supplier.getName());
+        }
+        partyComboBox.setItems(supplierNames);
     }
 
     private void loadAllOrderDetails() {

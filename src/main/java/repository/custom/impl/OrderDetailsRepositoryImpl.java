@@ -16,9 +16,9 @@ public class OrderDetailsRepositoryImpl implements OrderDetailsRepository {
 
     @Override
     public Boolean create(OrderDetails orderDetails) {
+        System.out.println("Creating OrderDetails: " + orderDetails);
         try {
-            return CrudUtill.execute("INSERT INTO order_details VALUES(?,?,?,?,?)",
-                    orderDetails.getOrderDetailId(),
+            return CrudUtill.execute("INSERT INTO order_details (bill_id, medicine_id, quantity, unit_price) VALUES(?,?,?,?)",
                     orderDetails.getBillId(),
                     orderDetails.getMedicineId(),
                     orderDetails.getQuantity(),
@@ -42,15 +42,15 @@ public class OrderDetailsRepositoryImpl implements OrderDetailsRepository {
             connection = DBConnection.getInstance().getConnection();
             connection.setAutoCommit(false);
 
-            String sql = "INSERT INTO order_details VALUES(?,?,?,?,?)";
+            String sql = "INSERT INTO order_details (bill_id, medicine_id, quantity, unit_price) VALUES (?,?,?,?)";
             psTm = connection.prepareStatement(sql);
 
             for (OrderDetails orderDetails : orderDetailsList) {
-                psTm.setInt(1, orderDetails.getOrderDetailId());
-                psTm.setInt(2, orderDetails.getBillId());
-                psTm.setInt(3, orderDetails.getMedicineId());
-                psTm.setInt(4, orderDetails.getQuantity());
-                psTm.setDouble(5, orderDetails.getUnitPrice());
+
+                psTm.setInt(1, orderDetails.getBillId());
+                psTm.setInt(2, orderDetails.getMedicineId());
+                psTm.setInt(3, orderDetails.getQuantity());
+                psTm.setDouble(4, orderDetails.getUnitPrice());
                 psTm.addBatch();
             }
 

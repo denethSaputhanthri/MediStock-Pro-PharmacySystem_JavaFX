@@ -18,6 +18,7 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 
     @Override
     public boolean addOrderDetail(OrderDetails orderDetails) {
+        System.out.println("Adding OrderDetails: " + orderDetails);
         if (!validateOrderDetails(orderDetails)) {
             return false;
         }
