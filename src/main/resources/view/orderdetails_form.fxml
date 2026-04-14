@@ -18,13 +18,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="788.0" prefWidth="1192.0" style="-fx-background-color: #f8fafc; -fx-padding: 20; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15, 0, 0, 4);" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderDetailsController">
+<AnchorPane prefHeight="764.0" prefWidth="1192.0" style="-fx-background-color: #f8fafc; -fx-padding: 20; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15, 0, 0, 4);" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderDetailsController">
 
-    <BorderPane style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+    <BorderPane layoutX="40.8" prefWidth="1151.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="112.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
         <!-- ==================== TOP SECTION ==================== -->
         <top>
-            <VBox spacing="12" style="-fx-background-color: transparent;">
+            <VBox prefHeight="88.0" prefWidth="1152.0" spacing="12" style="-fx-background-color: transparent;">
                 <Label style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #1e3a5f; -fx-font-family: 'Segoe UI'; -fx-padding: 10 0 0 15;" text="📦 ORDER MANAGEMENT" />
 
                 <HBox alignment="CENTER_RIGHT" spacing="20" style="-fx-padding: 0 20 10 20;">
@@ -38,7 +38,7 @@
 
         <!-- ==================== LEFT FORM (Order Header) ==================== -->
         <left>
-            <VBox prefWidth="320" spacing="20" style="-fx-background-color: white; -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 8, 0, 0, 2); -fx-padding: 20;">
+            <VBox prefHeight="690.0" prefWidth="320" spacing="20" style="-fx-background-color: white; -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 8, 0, 0, 2); -fx-padding: 20;">
                 <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #0f3b5c; -fx-border-color: #bae6fd; -fx-border-width: 0 0 2 0; -fx-padding: 0 0 8 0;" text="📋 ORDER DETAILS" />
 
                 <GridPane hgap="12" vgap="12">
@@ -111,9 +111,9 @@
 
         <!-- ==================== CENTER & BOTTOM: Orders Table + Items Table ==================== -->
         <center>
-            <VBox prefHeight="518.0" prefWidth="832.0" spacing="10" style="-fx-padding: 10 20 10 15;">
+            <VBox prefHeight="679.0" prefWidth="832.0" spacing="10" style="-fx-padding: 10 20 10 15;">
                 <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #1e3a5f; -fx-padding: 0 0 5 0;" text="📋 ORDERS LIST" />
-                <TableView fx:id="ordersTable" prefHeight="317.0" prefWidth="797.0" style="-fx-background-color: white; -fx-border-color: #e2e8f0; -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 2;" VBox.vgrow="ALWAYS">
+                <TableView fx:id="ordersTable" prefHeight="260.0" prefWidth="797.0" style="-fx-background-color: white; -fx-border-color: #e2e8f0; -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 2;" VBox.vgrow="ALWAYS">
                     <columns>
                         <TableColumn fx:id="orderIdColumn" prefWidth="115.20001530647278" text="Order ID" />
                         <TableColumn fx:id="orderDateColumn" prefWidth="131.99996948242188" text="Date" />
@@ -142,7 +142,7 @@
                 </TableView>
                 <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #1e3a5f;" text="📦 ORDER ITEMS" />
                 <HBox alignment="CENTER_RIGHT" spacing="10">
-                   <TableView fx:id="orderItemsTable" prefHeight="235.0" prefWidth="792.0" style="-fx-background-color: white; -fx-border-color: #e2e8f0; -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 2;">
+                   <TableView fx:id="orderItemsTable" prefHeight="274.0" prefWidth="792.0" style="-fx-background-color: white; -fx-border-color: #e2e8f0; -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 2;">
                        <columns>
                            <TableColumn fx:id="itemProductColumn" prefWidth="200" text="Product" />
                            <TableColumn fx:id="itemQuantityColumn" prefWidth="145.5999755859375" text="Quantity" />

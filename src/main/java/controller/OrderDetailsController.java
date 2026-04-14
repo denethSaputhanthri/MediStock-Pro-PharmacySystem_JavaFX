@@ -45,7 +45,7 @@ public class OrderDetailsController implements Initializable {
 
 
     @FXML
-    private TableColumn<?, ?> partyColumn;
+    private TableColumn<OrderDetails, ?> partyColumn;
 
     @FXML
     private ComboBox<String> partyComboBox;
@@ -64,8 +64,21 @@ public class OrderDetailsController implements Initializable {
     // not txtUnitPrice
 
     @FXML
-    private TableView<?> ordersTable;
+    private TableView<OrderDetails> ordersTable;
     // for the main orders list
+    @FXML
+    private TableColumn<?, ?> orderIdColumn;
+
+    @FXML
+    private TableColumn<?, ?> totalColumn;
+
+    @FXML
+    private TableColumn<?, ?> statusColumn;
+
+    @FXML
+    private TableColumn<?, ?> typeColumn;
+    @FXML
+    private TableColumn<?, ?> orderDateColumn;
 
     @FXML
     private TableView<OrderDetails> orderDetailsTable;
@@ -125,9 +138,6 @@ public class OrderDetailsController implements Initializable {
     private TableColumn<OrderDetails, Integer> itemQuantityColumn;
 
     @FXML
-    private TableColumn<OrderDetails, Double> itemPriceColumn;
-
-    @FXML
     private TableColumn<OrderDetails, Double> itemTotalColumn;
 
     public void createOrder(ActionEvent actionEvent) {
@@ -146,6 +156,7 @@ public class OrderDetailsController implements Initializable {
 
             SaleBill saleBill = new SaleBill(null, LocalDate.now(), totalAmount, customerName,"");
             boolean billSaved = saleBillService.addSaleBill(saleBill);
+
 
             if (!billSaved) {
                 showAlert("Error", "Failed to create order", Alert.AlertType.ERROR);
@@ -403,27 +414,26 @@ public class OrderDetailsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        if (colOrderDetailId != null) {
-            colOrderDetailId.setCellValueFactory(new PropertyValueFactory<>("orderDetailId"));
+        orderIdColumn.setCellValueFactory(new PropertyValueFactory<>("orderDetailId"));
+        if (orderDateColumn != null) {
+            orderDateColumn.setCellValueFactory(new PropertyValueFactory<>("created_at"));
         }
-        if (colBillId != null) {
-            colBillId.setCellValueFactory(new PropertyValueFactory<>("billId"));
+        if (partyColumn != null) {
+            partyColumn.setCellValueFactory(new PropertyValueFactory<>("medicineId"));
         }
-        if (colMedicineId != null) {
-            colMedicineId.setCellValueFactory(new PropertyValueFactory<>("medicineId"));
+        if (typeColumn != null) {
+            typeColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         }
-        if (colQuantity != null) {
-            colQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        if (statusColumn != null) {
+            statusColumn.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
         }
-        if (colUnitPrice != null) {
-            colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
-        }
-        if (colLineTotal != null) {
-            colLineTotal.setCellValueFactory(cellData -> {
-                OrderDetails od = cellData.getValue();
-                double total = od.getQuantity() * od.getUnitPrice();
-                return new javafx.beans.property.SimpleDoubleProperty(total).asObject();
-            });
+        if (ordersTable != null) {
+            ordersTable.setItems(orderDetailsObservableList);
+//            ordersTable.setCellValueFactory(cellData -> {
+//                OrderDetails od = cellData.getValue();
+//                double total = od.getQuantity() * od.getUnitPrice();
+//                return new javafx.beans.property.SimpleDoubleProperty(total).asObject();
+//            });
         }
 
         if (itemMedicineColumn != null) {

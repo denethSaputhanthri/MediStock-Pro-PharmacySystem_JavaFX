@@ -2,6 +2,7 @@ package controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -482,29 +483,29 @@ public class ReportController implements Initializable {
 
     @FXML
     public void exportCharts(ActionEvent actionEvent) {
-//        try {
-//            if (salesTrendChart != null) {
-//                WritableImage image = salesTrendChart.snapshot(null, null);
-//                File file = new File("sales_trend_chart.png");
-//                ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", file);
-//            }
-//
-//            if (salesBarChart != null) {
-//                WritableImage image = salesBarChart.snapshot(null, null);
-//                File file = new File("sales_bar_chart.png");
-//                ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", file);
-//            }
-//
-//            if (salesPieChart != null) {
-//                WritableImage image = salesPieChart.snapshot(null, null);
-//                File file = new File("sales_pie_chart.png");
-//                ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", file);
-//            }
-//
-//            showAlert("Success", "Charts exported successfully to current directory", Alert.AlertType.INFORMATION);
-//        } catch (IOException e) {
-//            showAlert("Error", "Failed to export charts: " + e.getMessage(), Alert.AlertType.ERROR);
-//        }
+        try {
+            if (salesTrendChart != null) {
+                WritableImage image = salesTrendChart.snapshot(null, null);
+                File file = new File("sales_trend_chart.png");
+                ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", file);
+            }
+
+            if (salesBarChart != null) {
+                WritableImage image = salesBarChart.snapshot(null, null);
+                File file = new File("sales_bar_chart.png");
+                ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", file);
+            }
+
+            if (salesPieChart != null) {
+                WritableImage image = salesPieChart.snapshot(null, null);
+                File file = new File("sales_pie_chart.png");
+                ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", file);
+            }
+
+            showAlert("Success", "Charts exported successfully to current directory", Alert.AlertType.INFORMATION);
+        } catch (IOException e) {
+            showAlert("Error", "Failed to export charts: " + e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
 
     private void updateSummaryLabels(List<DailySalesReport> reports) {
